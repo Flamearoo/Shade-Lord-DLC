@@ -10,7 +10,10 @@ namespace Shade_Lord_DLC
 {
     public class Local_Settings
     {
-        public int count = 0;
+        public List<bool> gotCharms = new List<bool>() { true, true, true, true, true, true, true, true, true, true };
+        public List<bool> newCharms = new List<bool>() { false, false, false, false, false, false, false, false, false, false };
+        public List<bool> equippedCharms = new List<bool>() { false, false, false, false, false, false, false, false, false, false };
+        public List<int> charmCosts = new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
     }
     public class Global_Settings
     {

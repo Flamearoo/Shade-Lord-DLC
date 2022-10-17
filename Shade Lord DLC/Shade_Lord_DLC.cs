@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
-using System.Collections;
+using System.Reflection;
+using System.Collections.Generic;
 using Modding;
 using UnityEngine;
 using SFCore;
@@ -24,6 +25,7 @@ using RandomizerMod.RC;
 using RandomizerCore;
 using RandomizerCore.Logic;
 using RandomizerCore.LogicItems;
+using InControl;
 
 namespace Shade_Lord_DLC
 {
@@ -57,27 +59,27 @@ namespace Shade_Lord_DLC
         {
             Log("Initializing");
 
-            ModHooks.HeroUpdateHook += OnPlayerUpdate;
-            On.HeroController.Awake += OnGameStart;
+            initCallbacks();
 
             Log("Initialized");
         }
 
+        private void initCallbacks()
+        {
+            ModHooks.HeroUpdateHook += OnPlayerUpdate;
+            On.HeroController.Awake += OnGameStart;
+        }
+
         public void OnPlayerUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                LS.count++;
-                GS.count++;
-            }
+
         }
 
         public void OnGameStart(On.HeroController.orig_Awake orig, HeroController self)
         {
             orig(self);
 
-            Log(LS.count);
-            Log(GS.count);
+
         }
         public static Local_Settings LS { get; set; } = new Local_Settings();
 
