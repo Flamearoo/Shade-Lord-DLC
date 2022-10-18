@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
+using System.Collections;
 using System.Collections.Generic;
 using Modding;
 using UnityEngine;
@@ -31,19 +31,15 @@ namespace Shade_Lord_DLC
 {
     public class Shade_Lord_DLC : Mod, ILocalSettings<Local_Settings>, IGlobalSettings<Global_Settings>
     {
-        private static Shade_Lord_DLC? _instance;
+        internal static Shade_Lord_DLC? Instance;
 
-        internal static Shade_Lord_DLC Instance
+        internal static List<Charm> Charms = new()
         {
-            get
-            {
-                if (_instance == null)
-                {
-                    throw new InvalidOperationException($"An instance of {nameof(Shade_Lord_DLC)} was never constructed");
-                }
-                return _instance;
-            }
-        }
+            LS.charm1.Instance,
+            BluemothWings.Instance,
+            LemmsStrength.Instance,
+            FloristsBlessing.Instance,
+        };
 
         new public string GetName()
         {
@@ -58,9 +54,11 @@ namespace Shade_Lord_DLC
         public override void Initialize()
         {
             Log("Initializing");
+            Instance = this;
+
+
 
             initCallbacks();
-
             Log("Initialized");
         }
 
@@ -68,6 +66,12 @@ namespace Shade_Lord_DLC
         {
             ModHooks.HeroUpdateHook += OnPlayerUpdate;
             On.HeroController.Awake += OnGameStart;
+
+            ModHooks.LanguageGetHook += OnLanguageGetHook;
+            ModHooks.GetPlayerBoolHook += OnGetPlayerBoolHook;
+            ModHooks.SetPlayerBoolHook += OnSetPlayerBoolHook;
+            ModHooks.GetPlayerIntHook += OnGetPlayerIntHook;
+            ModHooks.SetPlayerIntHook += OnSetPlayerIntHook;
         }
 
         public void OnPlayerUpdate()
@@ -81,7 +85,7 @@ namespace Shade_Lord_DLC
 
 
         }
-        public static Local_Settings LS { get; set; } = new Local_Settings();
+        internal static Local_Settings LS = new();
 
         public void OnLoadLocal(Local_Settings s)
         {
