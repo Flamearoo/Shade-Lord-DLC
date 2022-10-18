@@ -14,6 +14,8 @@ namespace Shade_Lord_DLC
     }
     public class Global_Settings
     {
-        public int count = 0;
+        public bool AddCharms = true;
+        public int IncreaseMaxCharmCostBy = 7;
+        public string LogicSettings = "{}";
     }
 }
