@@ -321,7 +321,7 @@ namespace Shade_Lord_DLC
             {
                 var name = charm.Name.Replace(" ", "_");
                 placements.Add(
-                    new CoordinateLocation() { x = charm.X, y = charm.Y, elevation = 0, sceneName = charm.Room, name = name }
+                    new CoordinateLocation() { x = charm.X, y = charm.Y, elevation = 0, sceneName = charm.Scene, name = name }
                     .Wrap()
                     .Add(Finder.GetItem(name)));
             }

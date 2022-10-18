@@ -14,16 +14,13 @@ namespace Shade_Lord_DLC
         public abstract string Name { get; }
         public abstract string Description { get; }
         public abstract int DefaultCost { get; }
-        public abstract string Room { get; }
+        public abstract string Scene { get; }
         public abstract float X { get; }
         public abstract float Y { get; }
 
         public int Num { get; set; }
 
-        public bool Equipped()
-        {
-            return PlayerData.instance.GetBool($"equippedCharm_{Num}");
-        }
+        public bool Equipped() => PlayerData.instance.GetBool($"equippedCharm_{Num}");
 
         public abstract CharmSettings cSL(Local_Settings s);
 
