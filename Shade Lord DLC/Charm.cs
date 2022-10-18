@@ -13,7 +13,7 @@ namespace Shade_Lord_DLC
         public abstract string Sprite { get; }
         public abstract string Name { get; }
         public abstract string Description { get; }
-        public abstract int Cost { get; }
+        public abstract int DefaultCost { get; }
         public abstract string Room { get; }
         public abstract float X { get; }
         public abstract float Y { get; }
@@ -25,10 +25,11 @@ namespace Shade_Lord_DLC
             return PlayerData.instance.GetBool($"equippedCharm_{Num}");
         }
 
-        public abstract CharmSettings Settings(Local_Settings s);
+        public abstract CharmSettings cSL(Local_Settings s);
 
-        public virtual void Hook() { }
         public virtual List<(string obj, string fsm, Action<PlayMakerFSM> edit)> FsmEdits => new();
         public virtual List<(int Period, Action Func)> Tickers => new();
+
+        public virtual void Hook() { }
     }
 }

@@ -10,7 +10,7 @@ namespace Shade_Lord_DLC
 {
     public class Local_Settings
     {
-        public CharmSettings charm1 = new();
+        public CharmSettings FightersPride = new();
     }
     public class Global_Settings
     {
