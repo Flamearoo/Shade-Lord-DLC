@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Shade_Lord_DLC
 {
-    internal class ManualVerticalItemPanel
+    internal class ManualVerticalItemPanel : IMenuPanel
     {
         private VerticalItemPanel panel;
         private Vector2 topCenterPos;
