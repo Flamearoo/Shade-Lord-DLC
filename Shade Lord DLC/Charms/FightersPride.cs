@@ -19,7 +19,7 @@ namespace Shade_Lord_DLC
 
         public override string Sprite => "FightersPride.png";
         public override string Name => "Fighter's Pride";
-        public override string Description => "A charm containing the power of those who are yet to fall.\n\nIncreases your damage dramatically when at full hp.";
+        public override string Description => "A charm containing the power of those who are yet to fall.\n\nIncreases the bearers damage dramatically when at full health.";
         public override int DefaultCost => 2;
         public override string Scene => "Ruins1_27";
         public override float X => 53.6f;
