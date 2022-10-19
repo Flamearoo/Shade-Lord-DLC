@@ -29,17 +29,26 @@ namespace Shade_Lord_DLC
         public override void Hook()
         {
             ModHooks.GetPlayerIntHook += BuffNail;
+            ModHooks.GetPlayerIntHook += HealthCheck;
             ModHooks.SetPlayerBoolHook += UpdateNailDamageOnEquip;
         }
 
         private int BuffNail(string intName, int damage)
         {
-            Shade_Lord_DLC.Instance.Log("executed nail update");
             if (intName == "nailDamage" && Equipped() && PlayerData.instance.health == PlayerData.instance.maxHealth)
             {
-                damage *= 4;
+                damage = (int)Math.Floor(damage * 2.0f);
             }
             return damage;
+        }
+
+        private int HealthCheck(string intName, int health)
+        {
+            if (intName == "health" && Equipped() && PlayerData.instance.health == PlayerData.instance.maxHealth)
+            {
+                Shade_Lord_DLC.UpdateNailDamage();
+            }
+            return health;
         }
 
         private bool UpdateNailDamageOnEquip(string boolName, bool value)
