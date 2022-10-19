@@ -1,9 +1,12 @@
-﻿using ItemChanger;
-using Modding;
+﻿using HutongGames.PlayMaker.Actions;
+using ItemChanger;
 using System;
+using System.IO;
+using System.Collections;
 using System.Collections.Generic;
+using Modding;
+using UnityEngine;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Shade_Lord_DLC
@@ -31,9 +34,10 @@ namespace Shade_Lord_DLC
 
         private int BuffNail(string intName, int damage)
         {
-            if (intName == "nailDamage" && Equipped())
+            Shade_Lord_DLC.Instance.Log("executed nail update");
+            if (intName == "nailDamage" && Equipped() && PlayerData.instance.health == PlayerData.instance.maxHealth)
             {
-                damage *= 2;
+                damage *= 4;
             }
             return damage;
         }

@@ -38,7 +38,7 @@ namespace Shade_Lord_DLC
             FightersPride.Instance
         };
 
-        internal static Shade_Lord_DLC? Instance;
+        public static Shade_Lord_DLC? Instance;
         private Dictionary<string, Func<bool, bool>> BoolGetters = new();
         private Dictionary<string, Action<bool>> BoolSetters = new();
         private Dictionary<string, Func<int, int>> IntGetters = new();
