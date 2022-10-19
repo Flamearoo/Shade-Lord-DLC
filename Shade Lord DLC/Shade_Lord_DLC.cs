@@ -149,9 +149,8 @@ namespace Shade_Lord_DLC
         {
             orig(self);
 
-
+            PlayerData.instance.charmCost_4 = 1;
         }
-
 
         internal static Local_Settings LS = new();
         public void OnLoadLocal(Local_Settings s)
