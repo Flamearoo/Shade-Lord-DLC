@@ -128,6 +128,8 @@ namespace Shade_Lord_DLC
             ModHooks.HeroUpdateHook += OnPlayerUpdate;
             On.HeroController.Awake += OnGameStart;
 
+            ModHooks.GetPlayerIntHook += CharmChange;
+
             ModHooks.GetPlayerBoolHook += ReadCharmBools;
             ModHooks.SetPlayerBoolHook += WriteCharmBools;
             ModHooks.GetPlayerIntHook += ReadCharmCosts;
@@ -149,7 +151,6 @@ namespace Shade_Lord_DLC
         {
             orig(self);
 
-            PlayerData.instance.charmCost_4 = 1;
         }
 
         internal static Local_Settings LS = new();
@@ -160,6 +161,42 @@ namespace Shade_Lord_DLC
         public Local_Settings OnSaveLocal()
         {
             return LS;
+        }
+
+        public int CharmChange(string name, int orig)
+        {
+            if (name == nameof(PlayerData.charmCost_4))
+            {
+                return 1;
+            }
+            else if (name == nameof(PlayerData.charmCost_38))
+            {
+                return 2;
+            }
+            else if (name == nameof(PlayerData.charmCost_5))
+            {
+                return 1;
+            }
+            else if (name == nameof(PlayerData.charmCost_34))
+            {
+                return 2;
+            }
+            else if (name == nameof(PlayerData.charmCost_40))
+            {
+                return 1;
+            }
+            else if (name == nameof(PlayerData.charmCost_39))
+            {
+                return 1;
+            }
+            else if (name == nameof(PlayerData.charmCost_22))
+            {
+                return 1;
+            }
+            else
+            {
+                return orig;
+            }
         }
 
         public static Global_Settings GS { get; set; } = new Global_Settings();

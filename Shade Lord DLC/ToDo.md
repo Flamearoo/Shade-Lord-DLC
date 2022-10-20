@@ -1,14 +1,9 @@
 ﻿# To Do
 
 Charm Changes:
-*Stalwart Shell cost -> 2
-*Dreamshield cost -> 2
 *DreamWielder -> 3 shields for Grimmshield
-*Balder Shell -> 1
-*Deep Focus -> 2
-*Caredree Melody -> 1
-*Kingsoul -> 3
-*Heavy Blow -> 2 - Negates player knockback
+*Heavy Blow -> Negates player knockback
+*Spore Shroom -> Pale aura increase damage
 
 Charm Upgrades:
 *Shaman Stone 3 -> Void Stone 3 - More damage - ShadeLord
